@@ -31,6 +31,11 @@ def main(args):
     # run the image through the model
 #    predictions,_ = lenet.lenet(images)
     predictions,_ = network_fn(images)
+#    slim.model_analyzer.analyze_ops(tf.get_default_graph(), print_info=True)
+    variables = slim.get_model_variables()
+    for var in variables:
+        tf.summary.histogram(var.op.name, var)
+    slim.model_analyzer.analyze_vars(variables, print_info=True)
     # get the cross-entropy loss
     one_hot_labels = slim.one_hot_encoding(
         labels,
