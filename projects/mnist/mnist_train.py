@@ -1,6 +1,7 @@
 import tensorflow as tf
 from datasets import mnist
-from nets import lenet
+#from nets import lenet
+from nets import nets_factory
 from model import load_batch
 #
 slim = tf.contrib.slim
@@ -8,7 +9,7 @@ slim = tf.contrib.slim
 flags = tf.app.flags
 flags.DEFINE_string('data_dir', '/tmp/mnist',
                     'Directory with the mnist data.')
-flags.DEFINE_integer('batch_size', 32, 'Batch size.')
+flags.DEFINE_integer('batch_size', 64, 'Batch size.')
 flags.DEFINE_integer('num_batches', None,
                      'Num of batches to train (epochs).')
 flags.DEFINE_string('log_dir', './log/train',
@@ -25,9 +26,11 @@ def main(args):
         FLAGS.batch_size,
         is_training=True)
 
+    
+    network_fn =nets_factory.get_network_fn("lenet",num_classes= 10,is_training=True)
     # run the image through the model
-    predictions,_ = lenet.lenet(images)
-
+#    predictions,_ = lenet.lenet(images)
+    predictions,_ = network_fn(images)
     # get the cross-entropy loss
     one_hot_labels = slim.one_hot_encoding(
         labels,
@@ -49,7 +52,7 @@ def main(args):
         train_op,
         FLAGS.log_dir,
         save_summaries_secs=20,
-        save_interval_secs =60)
+        save_interval_secs =60*2)
 
 
 if __name__ == '__main__':
