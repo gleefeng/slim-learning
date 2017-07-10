@@ -31,7 +31,7 @@ def main(args):
         dataset,
         FLAGS.batch_size,
         is_training=False)
-
+    print(images,labels)
     # get the model prediction
     predictions,_ = lenet.lenet(images)
 

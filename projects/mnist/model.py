@@ -20,7 +20,7 @@ def load_batch(dataset, batch_size=32, height=28, width=28, is_training=False):
     data_provider = slim.dataset_data_provider.DatasetDataProvider(dataset)
 
     image, label = data_provider.get(['image', 'label'])
-
+    print(image,label)
     image = lenet_preprocessing.preprocess_image(
         image,
         height,
