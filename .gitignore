@@ -91,3 +91,8 @@ ENV/
 .ropeproject
 log/train/events.out.tfevents.1499498757.95-PC
 *.PGOS
+*.data-00000-of-00001
+*.meta
+*.index
+*.HUANG-ZHEN-HUA
+projects/cifar10/log/train/checkpoint

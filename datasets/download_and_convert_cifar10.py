@@ -196,3 +196,5 @@ def run(dataset_dir):
 
   _clean_up_temporary_files(dataset_dir)
   print('\nFinished converting the Cifar10 dataset!')
+#if __name__ == '__main__':
+#    run("/tmp/cifar10/")
