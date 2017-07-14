@@ -67,7 +67,6 @@ def main(args):
     tf.summary.scalar('loss', total_loss)
 
     # use RMSProp to optimize
-#    optimizer = tf.train.RMSPropOptimizer(0.0001, 0.9)
     optimizer = tf.train.AdamOptimizer(0.001)
     # create train op
     train_op = slim.learning.create_train_op(
