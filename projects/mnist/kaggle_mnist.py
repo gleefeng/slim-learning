@@ -28,7 +28,6 @@ def read_traincsv():
 #    data_provider = slim.dataset_data_provider.DatasetDataProvider(dataset)
 
 #    image, label = data_provider.get(['image', 'label'])
-    
      data = pd.read_csv("./data/train.csv")
      images = data.iloc[:,1:].values
      images = images.astype(np.float32)
@@ -58,9 +57,8 @@ def read_testcsv():
      images = images/128.0 
 #     print(images[0])
 #     plt.imshow(images[0])
-     
+
      return images 
-    
     
 def show_train_accuracies():
     BATCH_SIZE = 512

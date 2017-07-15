@@ -96,3 +96,4 @@ log/train/events.out.tfevents.1499498757.95-PC
 *.index
 *.HUANG-ZHEN-HUA
 projects/cifar10/log/train/checkpoint
+*.95-PC
